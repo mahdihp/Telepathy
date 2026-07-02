@@ -169,3 +169,13 @@ Every module should have a single responsibility.
 
 Every feature should prioritize correctness, simplicity, and maintainability over unnecessary complexity.
 
+✅ Vision
+✅ Requirements
+✅ Access Patterns
+✅ Domain Model
+✅ Architecture
+✅ Events
+✅ ScyllaDB Data Model
+✅ API
+✅ Project Structure
+⬜ شروع پیاده‌سازی
