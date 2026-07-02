@@ -1,0 +1,13 @@
+UserRegistered
+UserLoggedIn
+
+ConversationCreated
+
+MessageSent
+MessageReplied
+
+UserOnline
+UserOffline
+
+TypingStarted
+TypingStopped
