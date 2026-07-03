@@ -1,0 +1,25 @@
+services:
+  scylladb:
+    image: scylladb/scylla
+    container_name: telepathy-scylladb
+    command: --smp 1 --memory 1G --overprovisioned 1 --api-address 0.0.0.0
+    ports:
+      - "9042:9042"
+      - "10000:10000"
+    volumes:
+      - scylla-data:/var/lib/scylla
+    restart: unless-stopped
+
+  redis:
+    image: redis:8-alpine
+    container_name: telepathy-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+name: telepathy_docker
+volumes:
+  scylla-data:
+  redis-data:
