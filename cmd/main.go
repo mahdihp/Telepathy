@@ -82,6 +82,7 @@ func main() {
 }
 func healthcheck(ctx fiber.Ctx) error {
 	return ctx.Status(fiber.StatusOK).JSON(&fiber.Map{
-		"status": "ok",
+		"Status":      "ok",
+		"Server Time": time.Now().Format("2006-1-02 15:04:05"),
 	})
 }
