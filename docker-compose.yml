@@ -19,6 +19,18 @@ services:
       - redis-data:/data
     restart: unless-stopped
 
+#  scylla-manager:
+#    image: scylladb/scylla-manager
+#    container_name: telepathy-scylla-manager
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      - CLUSTER_NAME=telepathy
+#      - SCYLLA_MANAGER_USERNAME=admin
+#      - SCYLLA_MANAGER_PASSWORD=admin123
+#      - SCYLLA_CONTACT_POINTS=telepathy-scylladb
+#    restart: unless-stopped
+
 name: telepathy_docker
 volumes:
   scylla-data:

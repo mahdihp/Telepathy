@@ -7,7 +7,7 @@ import (
 	"github.com/mahdihp/telepathy/configs"
 )
 
-func NewScylla(cfg configs.Config) (*gocql.Session, error) {
+func NewScyllaDb(cfg configs.Config) (*gocql.Session, error) {
 	cluster := gocql.NewCluster(cfg.ScyllaHost)
 
 	session, err := cluster.CreateSession()
@@ -34,6 +34,11 @@ func NewScylla(cfg configs.Config) (*gocql.Session, error) {
 	session, err = cluster.CreateSession()
 	if err != nil {
 		return nil, err
+	}
+
+	metadata, _ := session.AllKeyspaceMetadata()
+	for s := range metadata {
+		fmt.Println("DB:", s)
 	}
 
 	return session, nil
