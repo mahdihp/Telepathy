@@ -9,6 +9,7 @@ WITH replication = {
 };
 `
 
+// CreateUsersByID ایجاد جدول اصلی کاربران برای نگهداری اطلاعات کامل هر کاربر بر اساس user_id.
 const CreateUsersByID = `
 	CREATE TABLE IF NOT EXISTS users_by_id (
 		user_id UUID PRIMARY KEY,
@@ -24,6 +25,7 @@ const CreateUsersByID = `
 	);
 `
 
+// CreateUsersByPhone ایجاد جدول نگاشت شماره موبایل به user_id برای ورود سریع کاربران با شماره تلفن.
 const CreateUsersByPhone = `
 	CREATE TABLE IF NOT EXISTS users_by_phone (
 		phone_number TEXT PRIMARY KEY,
@@ -31,6 +33,7 @@ const CreateUsersByPhone = `
 	);
 `
 
+// CreateConversations ایجاد جدول اطلاعات اصلی گفتگوها (مانند نوع گفتگو و زمان ایجاد).
 const CreateConversations = `
 	CREATE TABLE IF NOT EXISTS conversations (
 		conversation_id UUID PRIMARY KEY,
@@ -40,6 +43,7 @@ const CreateConversations = `
 	);
 `
 
+// CreateConversationMembers ایجاد جدول اعضای هر گفتگو و نگهداری ارتباط بین کاربران و گفتگوها.
 const CreateConversationMembers = `
 	CREATE TABLE IF NOT EXISTS conversation_members (
 		conversation_id UUID,
@@ -49,6 +53,7 @@ const CreateConversationMembers = `
 	);
 `
 
+// CreateUserConversations ایجاد جدول فهرست گفتگوهای هر کاربر برای نمایش سریع لیست چت‌ها در صفحه اصلی.
 const CreateUserConversations = `
 	CREATE TABLE IF NOT EXISTS user_conversations (
 		user_id UUID,
@@ -60,6 +65,7 @@ const CreateUserConversations = `
 	) WITH CLUSTERING ORDER BY (last_message_at DESC);
 `
 
+// CreateMessagesByConversation ایجاد جدول پیام‌های هر گفتگو و ذخیره پیام‌ها به ترتیب زمانی برای خواندن سریع تاریخچه چت.
 const CreateMessagesByConversation = `
 	CREATE TABLE IF NOT EXISTS messages_by_conversation (
 		conversation_id UUID,

@@ -6,10 +6,10 @@ func RunMigrations(session *gocql.Session) error {
 	queries := []string{
 		CreateUsersByID,
 		CreateUsersByPhone,
-		//CreateConversations,
-		//CreateConversationMembers,
-		//CreateUserConversations,
-		//CreateMessagesByConversation,
+		CreateConversations,
+		CreateConversationMembers,
+		CreateUserConversations,
+		CreateMessagesByConversation,
 	}
 
 	for _, q := range queries {
